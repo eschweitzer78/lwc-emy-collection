@@ -1,0 +1,36 @@
+.THIS .leaflet-map {
+    height: 450px;
+}
+
+.THIS .leaflet-pane {
+    z-index: 40;
+}
+
+.THIS .leaflet-tile-pane {
+    z-index: 20;
+}
+
+.THIS .leaflet-shadow-pane {
+    z-index: 50;
+}
+
+.THIS .leaflet-overlay-pane {
+    z-index: 40;
+}
+
+.THIS .leaflet-marker-pane {
+    z-index: 60;
+}
+
+.THIS .leaflet-tooltip-pane {
+    z-index: 65;
+}
+
+.THIS .leaflet-popup-pane {
+    z-index: 70;
+}
+
+.THIS .leaflet-top,
+.THIS .leaflet-bottom {
+    z-index: 98;
+}

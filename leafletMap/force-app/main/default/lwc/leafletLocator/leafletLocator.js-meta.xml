@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Leaflet Locator</masterLabel>
+    <apiVersion>49.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage, lightning__RecordPage, lightning__HomePage">
+            <property name="mapHeight" type="Integer" min="160" default="480"/>
+            <property name="displayOnly" type="Boolean" default="false"/>
+            <property name="displayContext" type="String" datasource="Public, Private"/>
+            <property name="geoprivacy" type="String" datasource="Public, Obscured, Private"/>
+            <property name="defaultLat" type="String"/>
+            <property name="defaultLon" type="String"/>
+            <property name="defaultZoom" type="Integer" min="0" max="18" default="7"/>
+            <property name="hasSelection" type="Boolean"/>
+            <property name="selectedLat" type="String"/>
+            <property name="selectedLon" type="String"/>
+            <property name="accuracy" type="Integer" min="0"/>
+            <property name="localityLat" type="String"/>
+            <property name="localityLon" type="String"/>
+            <property name="locality" type="String"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

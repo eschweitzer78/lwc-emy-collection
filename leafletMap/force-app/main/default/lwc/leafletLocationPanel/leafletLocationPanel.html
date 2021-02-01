@@ -1,0 +1,134 @@
+<template>
+    <template if:false={displayOnly}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item
+                size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="horizontal-small">
+                <lightning-input
+                    label="Latitude" name="latitude"
+                    type="number" value={selectedLat} step="0.000000000000001"
+                    read-only={displayOnly} onchange={latChangeHandler}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item
+                size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="horizontal-small">
+                <lightning-input
+                    label="Longitude" name="longitude"
+                    type="number" value={selectedLon} step="0.000000000000001"
+                    read-only={displayOnly} onchange={lonChangeHandler}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item
+                size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="horizontal-small">
+                <lightning-input
+                    label="Accuracy" name="accuracy"
+                    type="number" value={accuracy} step="1"
+                    read-only={displayOnly} onchange={accuracyChangeHandler}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item
+                size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                padding="horizontal-small">
+                <lightning-combobox
+                    label="Geoprivacy" name="geoprivacy"
+                    value={geoprivacy} options={geoprivacyOptions}
+                    read-only={displayOnly} onchange={geoprivacyChangeHandler}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item
+                size="12" small-device-size="12" medium-device-size="8" large-device-size="4"
+                padding="horizontal-small">            
+                <lightning-input
+                    label="Locality" name="locality"
+                    type="string" value={locality}
+                    read-only="true">
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+            
+    <div if:true={displayOnly}>
+        <div class="slds-m-top_x-small">
+            <div if:true={showDetails}>
+                <div if:false={detailsExpanded}>
+                    <div class="locality-details">
+                        <lightning-button
+                            variant="base" label="Details"
+                            class="slds-float_right"
+                            icon-name="utility:chevrondown" icon-position="right"
+                            onclick={toggleDisplayDetailsHandler}>
+                        </lightning-button>
+                    </div>
+                    <div class="locality">
+                        <lightning-icon
+                            icon-name="utility:checkin" size="x-small" alternative-text="Locality" title="locality">
+                        </lightning-icon>
+                        &nbsp;{locality}
+                    </div>
+
+                </div>
+
+                <div if:true={detailsExpanded}>
+                    <div class="locality-details">
+                        <lightning-button
+                            variant="base" label="Details"
+                            class="slds-float_right"
+                            icon-name="utility:chevronup" icon-position="right"
+                            onclick={toggleDisplayDetailsHandler}>
+                        </lightning-button>
+                    </div>
+
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item size="12">
+                            <div class="locality">
+                                <lightning-icon
+                                    icon-name="utility:checkin" size="x-small" alternative-text="Locality" title="locality">
+                                </lightning-icon>
+                                &nbsp;{locality}
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item
+                            size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+                            padding="horizontal-small">
+                            <lightning-input
+                                label="Latitude" name="latitude"
+                                type="number" value={displayLat} step="0.000000000000001"
+                                read-only="true">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item
+                            size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+                            padding="horizontal-small">
+                            <lightning-input
+                                label="Longitude" name="longitude"
+                                type="number" value={displayLon} step="0.000000000000001"
+                                read-only="true">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item
+                            size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+                            padding="horizontal-small">
+                            <lightning-input
+                                label="Accuracy" name="accuracy"
+                                type="number" value={accuracy} step="1"
+                                read-only="true">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item
+                            size="12" small-device-size="6" medium-device-size="3" large-device-size="3"
+                            padding="horizontal-small">
+                            <lightning-input
+                                label="Geoprivacy" name="geoprivacy"
+                                type="text" value={geoprivacy}
+                                read-only="true">
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
